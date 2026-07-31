@@ -37,12 +37,12 @@ public class BoundedStack {
     //   - String เป็น immutable จึงปลอดภัยที่จะแชร์ตัวอ้างอิงของสมาชิกแต่ละตัวได้
     //   
 
-    private void checkRep() {
-        assert elements != null : "";
-        assert elements.size() <= MAX_CAPACITY : "";
+   private void checkRep() {
+        assert elements != null : "elements must not be null";
+        assert elements.size() <= MAX_CAPACITY : "exceeded MAX_CAPACITY";
         for (String e : elements) {
-            assert e != null : "";
-            assert !e.equals("") : "";
+            assert e != null : "element must not be null";
+            assert !e.equals("") : "element must not be empty string";
         }
     }
 
