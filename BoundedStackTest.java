@@ -51,3 +51,46 @@ public static void main(String[] args)
             System.exit(1);
         }
     }
+ private static void testCreators()
+    {
+        System.out.println("\n-- testCreators --");
+ 
+        BoundedStack empty = new BoundedStack();
+        // เช็คว่า no-arg constructor สร้างชั้นวางว่าง size = 0
+        check("no-arg constructor -> size==0", empty.size() == 0);
+        // เช็คว่า no-arg constructor -> isEmpty() = true
+        check("no-arg constructor -> isEmpty()==true", empty.isEmpty());
+ 
+        boolean nullThrows = false;
+        try
+        {
+            new BoundedStack(null);
+        }
+        catch (IllegalArgumentException e)
+        {
+            nullThrows = true;
+        }
+        // เช็คว่าส่ง null เข้า constructor ต้องโยน exception
+        check("constructor(null) -> throw IllegalArgumentException", nullThrows);
+ 
+        boolean nullElementThrows = false;
+        try
+        {
+            new BoundedStack(Arrays.asList("A", null, "B"));
+        }
+        catch (IllegalArgumentException e)
+        {
+            nullElementThrows = true;
+        }
+        // เช็คว่า list ที่มีสมาชิกเป็น null ต้องโยน exception
+        check("constructor(list with null element) -> throw IllegalArgumentException", nullElementThrows);
+ 
+        boolean emptyStringThrows = false;
+        try
+        {
+            new BoundedStack(Arrays.asList("A", "", "B"));
+        }
+        catch (IllegalArgumentException e)
+        {
+            emptyStringThrows = true;
+        }
