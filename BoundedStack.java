@@ -137,19 +137,20 @@ public class BoundedStack {
     }
 
     // ===== Producer =====
-
     /**
-     *แก้
+     * สร้างชั้นวางกล่องพัสดุใหม่ที่มีกล่องชุดเดียวกัน
+     * แต่เรียงลำดับแบบสุ่มโดยไม่แก้ไขชั้นวางเดิม
+     *
+     * @return ชั้นวางกล่องพัสดุใหม่ที่มีลำดับกล่องถูกสลับแบบสุ่ม
      */
-    //public BoundedStack reversed() {
-    //    List<String> copy = new ArrayList<>(elements);
-    //    Collections.reverse(copy);
-    //    return new BoundedStack(copy);
-    //}
+    public BoundedStack shuffled() {
+        List<String> copy = new ArrayList<>(elements);
+        Collections.shuffle(copy);
+        return new BoundedStack(copy);
+    }
 
-    //@Override
-    //public String toString() {
-    //    return elements.toString();
-    //}
-    
+    @Override
+    public String toString() {
+        return elements.toString();
+    }
 }
