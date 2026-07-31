@@ -31,7 +31,10 @@ public class BoundedStack {
     // ทุกสมาชิกใน elements ไม่เป็น null และไม่เป็น string ว่าง ""
     //   
 
-    // Safety from rep exposure:
+    // Safety from rep exposureelements เป็น private final และไม่เคยถูกส่งอ้างอิงออกไปโดยตรง
+    //   - constructor ที่รับ List<String> จะ copy ข้อมูลเข้ามาใหม่
+    //   - toList() คืนค่าเป็น copy ใหม่เสมอ ไม่ใช่ elements ตัวจริง
+    //   - String เป็น immutable จึงปลอดภัยที่จะแชร์ตัวอ้างอิงของสมาชิกแต่ละตัวได้
     //   
 
     private void checkRep() {
