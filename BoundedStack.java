@@ -47,7 +47,6 @@ public class BoundedStack {
     }
 
     // ===== Creator =====
-
     /**
      * สร้างชั้นวางกล่องพัสดุที่ยังไม่มีกล่องเลย
      */
@@ -55,16 +54,19 @@ public class BoundedStack {
         this.elements = new ArrayList<>();
         checkRep();
     }
-
     /**
      * สร้างชั้นวางกล่องพัสดุจากรายการเริ่มต้น
+     * 
+     * @param initial รายการกล่องเริ่มต้นจากล่างไปบนต้องไม่เป็นnull,
+     *                ไม่มีกล่องเป็นnullหรือสตริงว่าง และจำนวนต้องไม่เกิน MAX_CAPACITY
+     * @throws IllegalArgumentException ถ้า initialผิดเงื่อนไข
      */
     public BoundedStack(List<String> initial) {
-        if (initial == null)throw new IllegalArgumentException("");
-        if (initial.size() > MAX_CAPACITY)throw new IllegalArgumentException("");
+        if (initial == null) throw new IllegalArgumentException("initial must not be null");
+        if (initial.size() > MAX_CAPACITY) throw new IllegalArgumentException("initial exceeds MAX_CAPACITY");
         for (String e : initial) {
-            if (e == null)throw new IllegalArgumentException("");
-            if (e.equals(""))throw new IllegalArgumentException("");
+            if (e == null) throw new IllegalArgumentException("element must not be null");
+            if (e.equals("")) throw new IllegalArgumentException("element must not be empty string");
         }
 
         this.elements = new ArrayList<>(initial);
