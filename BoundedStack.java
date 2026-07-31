@@ -74,13 +74,15 @@ public class BoundedStack {
     }
 
     // ===== Mutators =====
-    
     /**
      * วางกล่องใหม่ขึ้นไปบนสุด
+     * @param element ชื่อกำกับกล่องต้องไม่เป็น nullและสตริงว่าง
+     * @return true ถ้าวางสำเร็จ,false ถ้าชั้นเต็มแล้ว
+     * @throws IllegalArgumentException ถ้า elementเป็น nullหรือสตริงว่าง
      */
     public boolean push(String element) {
-        if (element == null)throw new IllegalArgumentException("");
-        if (element.equals(""))throw new IllegalArgumentException("");
+        if (element == null) throw new IllegalArgumentException("element must not be null");
+        if (element.equals("")) throw new IllegalArgumentException("element must not be empty string");
         if (elements.size() == MAX_CAPACITY) {
             return false;
         }
@@ -88,9 +90,9 @@ public class BoundedStack {
         checkRep();
         return true;
     }
-
     /**
      * หยิบกล่องที่อยู่บนสุดออกแล้วคืนค่า
+     * @return กล่องที่เคยอยู่บนสุดก่อนหยิบออกหรือ nullถ้าชั้นว่าง
      */
     public String pop() {
         if (elements.isEmpty()) {
