@@ -21,10 +21,14 @@ public class BoundedStack {
     // ===== representation =====
     private final List<String> elements;
 
-    // AF:
+    // AF(elements) = ชั้นวางกล่องพัสดุที่มีกล่องวางซ้อนกันอยู่ โดย elements.get(0)
+    // คือกล่องล่างสุด elements.get(elements.size()-1) คือกล่องบนสุด
     //   
 
-    // RI:
+    // RI
+    // elements != null &&
+    // elements.size() <= MAX_CAPACITY &&
+    // ทุกสมาชิกใน elements ไม่เป็น null และไม่เป็น string ว่าง ""
     //   
 
     // Safety from rep exposure:
