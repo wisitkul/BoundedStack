@@ -104,28 +104,24 @@ public class BoundedStack {
     }
 
     // ===== Observers =====
-
-    /**  */
+    /** คืนจำนวนกล่องที่อยู่บนชั้นในขณะนี้ */
     public int size() {
         return elements.size();
     }
-
-    /**  */
+    /** คืนค่าtrueถ้าชั้นวางไม่มีกล่อง */
     public boolean isEmpty() {
         return elements.isEmpty();
     }
-
-    /**  */
+    /** คืนค่าtrueถ้าชั้นวางเต็มความจุ */
     public boolean isFull() {
         return elements.size() == MAX_CAPACITY;
     }
-
-    /**  */
+    /** คืนค่าtrueถ้ามีกล่องชื่อelementอยู่บนชั้น */
     public boolean contains(String element) {
         return elements.contains(element);
     }
-
     /**
+     * คืนกล่องที่อยู่บนสุดโดยไม่หยิบออก หรือ nullถ้าชั้นวางว่าง
      */
     public String peek() {
         if (elements.isEmpty()) {
@@ -133,7 +129,6 @@ public class BoundedStack {
         }
         return elements.get(elements.size() - 1);
     }
-
     /**
      * คืนรายชื่อกล่องบนชั้นเรียงจากล่างไปบน
      */
