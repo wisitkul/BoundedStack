@@ -29,3 +29,25 @@ public class BoundedStackTest
             System.out.println("[Failed] " + name);
         }
     }
+public static void main(String[] args)
+    {
+        testCreators();
+        testPush();
+        testFullCapacity();
+        testPop();
+        testPeek();
+        testObservers();
+        testShuffled();
+        testRepExposure();
+ 
+        System.out.println("\n=== Summary ===");
+        System.out.println("Passed: " + passed);
+        System.out.println("Failed: " + failed);
+        System.out.println("Total : " + (passed + failed));
+        System.out.println(failed == 0 ? "ALL TESTS PASSED" : "SOME TESTS FAILED");
+ 
+        if (failed > 0)
+        {
+            System.exit(1);
+        }
+    }
