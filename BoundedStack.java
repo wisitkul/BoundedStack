@@ -4,7 +4,15 @@ import java.util.List;
 
 /**
  * BoundedStack — ADT แทนชั้นวางกล่องพัสดุ
- *
+ * 
+ * ค่านามธรรม (A): ลำดับของกล่อง เช่น [กล่องพัสดุA, กล่องพัสดุB, กล่องพัสดุC]
+ * 
+ *ตัวอย่างการใช้งาน:
+ *     BoundedStack shelf = new BoundedStack();
+ *     shelf.push("กล่องพัสดุA");
+ *     shelf.push("กล่องพัสดุB");
+ *     shelf.pop();                 // คืน "กล่องพัสดุB"ที่วางล่าสุด
+ *     System.out.println(shelf.size());   // 1
  */
 public class BoundedStack {
 
